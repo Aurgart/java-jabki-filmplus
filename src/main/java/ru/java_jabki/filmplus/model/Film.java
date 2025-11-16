@@ -1,0 +1,57 @@
+package ru.java_jabki.filmplus.model;
+
+import java.time.LocalDate;
+import java.util.Set;
+import java.util.concurrent.atomic.AtomicInteger;
+
+public class Film {
+    //id, name, description, releaseDate, duration, genres
+    private static final AtomicInteger count = new AtomicInteger();
+    private final int id;
+    private final String name;
+    private final LocalDate releaseDate;
+    private final Long duration;
+    private String description;
+    private Set<Genre> genres;
+
+    public Film(String name, String description, LocalDate releaseDate, Long duration, Set<Genre> genres) {
+        this.id = count.incrementAndGet();
+        this.name = name;
+        this.description = description;
+        this.releaseDate = releaseDate;
+        this.duration = duration;
+        this.genres = genres;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public LocalDate getReleaseDate() {
+        return this.releaseDate;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getId() {
+        return this.id;
+    }
+
+    public double getDuration() {
+        return this.duration;
+    }
+
+    public Set<Genre> getGenres() {
+        return this.genres;
+    }
+
+    public void setGenres(Set<Genre> genres) {
+        this.genres = genres;
+    }
+}
