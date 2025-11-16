@@ -19,11 +19,11 @@ public class UserController {
 
     @PostMapping
     @Operation(summary = "Создать пользователя")
-    public User create(@RequestBody final User user) {
+    public User create(@RequestBody User user) {
         return userLogic.addUser(user);
     }
 
-    @GetMapping("/id")
+    @GetMapping("/{id}")
     @Operation(summary = "Получить данные пользователя")
     public User getById(@PathVariable("id") String id) {
         return userLogic.getbyId(Long.parseLong(id));
@@ -35,7 +35,7 @@ public class UserController {
         userLogic.updateUser(user);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     @Operation(summary = "Удалить пользователя")
     public void delete(@PathVariable("id") String id) {
         userLogic.deleteUser(Long.parseLong(id));

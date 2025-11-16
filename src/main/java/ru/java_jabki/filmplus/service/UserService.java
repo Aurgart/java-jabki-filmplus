@@ -15,10 +15,11 @@ import java.util.Set;
 public class UserService {
     private static Set<User> users = new HashSet<>();
 
-    public User addUser(final User user) {
+    public User addUser(User user) {
         validateUser(user);
-        users.add(user);
-        return user;
+        User newuser = new User(user.getName(), user.getEmail(),user.getLogin(),user.getBirthday());
+        users.add(newuser);
+        return newuser;
     }
 
     private void validateUser(User user) {

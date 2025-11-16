@@ -26,7 +26,7 @@ public class ReviewController {
         reviewLogic.addReviewToFilm(review.getFilmId(), review.getUserId(), review.getReview());
     }
 
-    @GetMapping("/id")
+    @GetMapping
     @Operation(summary = "Получить ревью по фильму")
     public List<Review> getById(@RequestParam(required = false) String filmId, @RequestParam(required = false) String userId) {
         return reviewLogic.getReviews(Integer.parseInt(filmId), Long.parseLong(userId));

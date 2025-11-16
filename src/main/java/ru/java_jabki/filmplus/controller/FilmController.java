@@ -27,7 +27,7 @@ public class FilmController {
         return filmLogic.addfilm(film);
     }
 
-    @GetMapping("/id")
+    @GetMapping("/{id}")
     @Operation(summary = "Получить данные фильма")
     public Film getById(@PathVariable("id") String id) {
         return filmLogic.getbyId(Integer.parseInt(id));
@@ -39,7 +39,7 @@ public class FilmController {
         filmLogic.updateFilm(film);
     }
 
-    @DeleteMapping("/id")
+    @DeleteMapping("/{id}")
     @Operation(summary = "Удалить фильм")
     public void delete(@PathVariable("id") String id) {
         filmLogic.deleteFilm(Integer.parseInt(id));

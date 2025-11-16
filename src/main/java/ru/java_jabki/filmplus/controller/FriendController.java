@@ -26,7 +26,7 @@ public class FriendController {
         niggaLogic.befriendThatNigga(friend.getUserId1(), friend.getUserId2());
     }
 
-    @GetMapping("/id")
+    @GetMapping("/{id}")
     @Operation(summary = "Получить Ниггу")
     public List<Friends> getById(@RequestParam(required = true) String userId) {
         return niggaLogic.getBestNiggas(Long.parseLong(userId));

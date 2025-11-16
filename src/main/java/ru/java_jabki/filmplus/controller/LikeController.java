@@ -25,7 +25,7 @@ public class LikeController {
         likeLogic.addLikeToFilm(like.getFilmId(), like.getUserId());
     }
 
-    @GetMapping("/id")
+    @GetMapping("/{id}")
     @Operation(summary = "Получить лайки по фильму")
     public List<Like> getById(@RequestParam(required = false) String filmId, @RequestParam(required = false) String userId) {
         return likeLogic.getLikes(Integer.parseInt(filmId), Long.parseLong(userId));

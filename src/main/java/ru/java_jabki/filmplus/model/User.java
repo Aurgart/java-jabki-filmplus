@@ -30,6 +30,9 @@ public class User {
     public String getEmail(){
         return this.email;
     }
+    public String getLogin(){
+        return this.login;
+    }
 
     public LocalDate getBirthday() {
         return birthday;
