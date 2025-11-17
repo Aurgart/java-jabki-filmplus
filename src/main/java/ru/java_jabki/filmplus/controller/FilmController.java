@@ -7,6 +7,7 @@ import ru.java_jabki.filmplus.model.Film;
 import ru.java_jabki.filmplus.model.Genre;
 import ru.java_jabki.filmplus.service.FilmService;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Set;
 
@@ -47,7 +48,7 @@ public class FilmController {
 
     @GetMapping("/search")
     @Operation(summary = "Поиск фильма")
-    public List<Film> searchFilm(@RequestParam(required = false) String name, @RequestParam(required = false) String description, @RequestParam(required = false) String releaseDate, @RequestParam(required = false) String duration, @RequestParam(required = false) Set<Genre> genres) {
+    public List<Film> searchFilm(@RequestParam(required = false) String name, @RequestParam(required = false) String description, @RequestParam(required = false) LocalDate releaseDate, @RequestParam(required = false) String duration, @RequestParam(required = false) Set<Genre> genres) {
         return filmLogic.searchFilm(name, description, duration, releaseDate, genres);
     }
 }

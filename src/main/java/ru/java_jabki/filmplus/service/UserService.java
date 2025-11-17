@@ -7,6 +7,7 @@ import ru.java_jabki.filmplus.exceptions.UserException;
 import ru.java_jabki.filmplus.model.Film;
 import ru.java_jabki.filmplus.model.User;
 
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -21,6 +22,12 @@ public class UserService {
         users.add(newuser);
         return newuser;
     }
+    public User addUser(String name, String email, String login, LocalDate birthday) {
+        validateUserData(name, name, login, birthday);
+        User newuser = new User(name, name, login, birthday);
+        users.add(newuser);
+        return newuser;
+    }
 
     private void validateUser(User user) {
         if (user == null) {
@@ -30,7 +37,15 @@ public class UserService {
             throw new UserException("One of the parameters is empty: name - " + user.getName() + " email - " + user.getEmail());
         }
     }
+    private void validateUserData(String name, String email, String login, LocalDate birthday) {
 
+        if (!StringUtils.hasText(email) || !StringUtils.hasText(name)) {
+            throw new UserException("One of the parameters is empty: name - " + name + " email - " +email);
+        }
+        if (!StringUtils.hasText(login) || birthday.isAfter(LocalDate.now())) {
+            throw new UserException("One of the parameters is empty: login - " + login + " birthday - " +birthday);
+        }
+    }
     public User getbyId(final Long id) {
         return users.stream().filter(f -> Objects.equals(f.getId(), id)).findFirst().orElseThrow(() -> new FilmException("Movie not found"));
     }

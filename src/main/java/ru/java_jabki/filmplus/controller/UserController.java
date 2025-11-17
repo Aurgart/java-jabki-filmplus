@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import ru.java_jabki.filmplus.model.User;
 import ru.java_jabki.filmplus.service.UserService;
 
+import java.time.LocalDate;
+
 @RestController
 @RequestMapping("/api/v1/user")
 @Tag(name = "Пользователь")
@@ -17,10 +19,19 @@ public class UserController {
         this.userLogic = users;
     }
 
-    @PostMapping
-    @Operation(summary = "Создать пользователя")
-    public User create(@RequestBody User user) {
+   /* @PostMapping
+    @Operation(summary = "Создать пользователя объектом")
+    public User create(@RequestBody final User user) {
         return userLogic.addUser(user);
+    }*/
+
+    @PostMapping
+    @Operation(summary = "Создать пользователя параметрами")
+    public User createParam(@RequestParam(required = true) String name,
+                       @RequestParam(required = true) String email,
+                       @RequestParam(required = true) String login,
+                       @RequestParam(required = true) LocalDate birthday) {
+        return userLogic.addUser(name,email,login, birthday);
     }
 
     @GetMapping("/{id}")
