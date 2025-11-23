@@ -12,7 +12,7 @@ public class User {
     private LocalDate birthday;
 
 
-    public User(final String name, final String email, final String login, final LocalDate birthday){
+    public User(final String name, final String email, final String login, final LocalDate birthday) {
         this.id = count.incrementAndGet();
         this.name = name;
         this.email = email;
@@ -20,17 +20,27 @@ public class User {
         this.birthday = birthday;
     }
 
-    public Long getId(){
+    public Long getId() {
         return this.id;
     }
 
-    public String getName(){
+    public String getName() {
         return this.name;
     }
-    public String getEmail(){
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
         return this.email;
     }
-    public String getLogin(){
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getLogin() {
         return this.login;
     }
 
@@ -38,13 +48,7 @@ public class User {
         return birthday;
     }
 
-    public void setName(String name){
-        this.name = name;
-    }
-    public void setEmail(String email){
-        this.email = email;
-    }
-    public void setBirthday(LocalDate birthday){
+    public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;
     }
 }

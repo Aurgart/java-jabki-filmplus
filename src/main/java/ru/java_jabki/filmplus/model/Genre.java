@@ -1,7 +1,7 @@
 package ru.java_jabki.filmplus.model;
 
 public enum Genre {
-    Comedy(1), Drama(2), Action(3), Thriller(4), Horror(5), Romantic(6);
+    COMEDY(1), DRAMA(2), ACTION(3), THRILLER(4), HORROR(5), ROMANTIC(6);
 
     private final int id;
 

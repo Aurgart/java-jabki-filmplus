@@ -1,19 +1,19 @@
 package ru.java_jabki.filmplus.model;
 
 public class Friends {
-    private final Long userId1;
-    private final Long userId2;
+    private final Long firstFriend;
+    private final Long secondFriend;
 
-    public Friends(final Long userId1, final Long userId2) {
-        this.userId1 = userId1;
-        this.userId2 = userId2;
+    public Friends(final Long firstFriend, final Long secondFriend) {
+        this.firstFriend = firstFriend;
+        this.secondFriend = secondFriend;
     }
 
-    public Long getUserId1() {
-        return userId1;
+    public Long getFirstFriend() {
+        return this.firstFriend;
     }
 
-    public Long getUserId2() {
-        return userId2;
+    public Long getSecondFriend() {
+        return this.secondFriend;
     }
 }

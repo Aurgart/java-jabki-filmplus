@@ -19,19 +19,10 @@ public class UserController {
         this.userLogic = users;
     }
 
-   /* @PostMapping
-    @Operation(summary = "Создать пользователя объектом")
-    public User create(@RequestBody final User user) {
-        return userLogic.addUser(user);
-    }*/
-
     @PostMapping
     @Operation(summary = "Создать пользователя параметрами")
-    public User createParam(@RequestParam(required = true) String name,
-                       @RequestParam(required = true) String email,
-                       @RequestParam(required = true) String login,
-                       @RequestParam(required = true) LocalDate birthday) {
-        return userLogic.addUser(name,email,login, birthday);
+    public User createParam(@RequestParam(required = true) String name, @RequestParam(required = true) String email, @RequestParam(required = true) String login, @RequestParam(required = true) LocalDate birthday) {
+        return userLogic.addUser(name, email, login, birthday);
     }
 
     @GetMapping("/{id}")

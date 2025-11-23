@@ -23,18 +23,18 @@ public class FriendController {
     @PostMapping
     @Operation(summary = "Подружится")
     public void addFriend(@RequestBody final Friends friend) {
-        niggaLogic.befriendThatNigga(friend.getUserId1(), friend.getUserId2());
+        niggaLogic.befriendThatNigga(friend.getFirstFriend(), friend.getSecondFriend());
     }
 
     @GetMapping("/{id}")
     @Operation(summary = "Получить Ниггу")
-    public List<Friends> getById(@RequestParam(required = true) String userId) {
+    public List<Friends> getById(@PathVariable("id") String userId) {
         return niggaLogic.getBestNiggas(Long.parseLong(userId));
     }
 
     @DeleteMapping
     @Operation(summary = "Убить Ниггу")
-    public void delete(@RequestParam(required = true) String user1Id, @RequestParam(required = true) String user2Id) {
-        niggaLogic.hateThatNigga(Long.parseLong(user1Id), Long.parseLong(user2Id));
+    public void delete(@RequestParam(required = true) Long firstFriend, @RequestParam(required = true) Long secondFriend) {
+        niggaLogic.hateThatNigga(firstFriend, secondFriend);
     }
 }

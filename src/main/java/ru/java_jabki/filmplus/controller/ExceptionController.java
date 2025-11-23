@@ -10,7 +10,7 @@ import ru.java_jabki.filmplus.model.ApiError;
 @RestControllerAdvice
 public class ExceptionController {
     @ExceptionHandler({UserException.class, FilmException.class})
-    public ResponseEntity<ApiError> handleError(RuntimeException Exception) {
-        return ResponseEntity.badRequest().body(new ApiError(false, Exception.getMessage()));
+    public ResponseEntity<ApiError> handleError(RuntimeException exception) {
+        return ResponseEntity.badRequest().body(new ApiError(false, exception.getMessage()));
     }
 }

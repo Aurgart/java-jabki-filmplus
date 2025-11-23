@@ -54,6 +54,6 @@ public class FilmService {
     }
 
     public List<Film> searchFilm(String name, String description, String duration, LocalDate localdate, Set<Genre> genres) {
-        return films.stream().filter(f -> (!StringUtils.hasText(name) || f.getName().toLowerCase().contains(name.toLowerCase())) && (!StringUtils.hasText(description) || f.getDescription().toLowerCase().contains(description.toLowerCase())) && (!StringUtils.hasText(duration) || Objects.equals(f.getDuration(), Long.parseLong(duration))) && (localdate != null|| Objects.equals(f.getReleaseDate(), localdate)) && (genres == null || f.getGenres().equals(genres))).toList();
+        return films.stream().filter(f -> (!StringUtils.hasText(name) || f.getName().toLowerCase().contains(name.toLowerCase())) && (!StringUtils.hasText(description) || f.getDescription().toLowerCase().contains(description.toLowerCase())) && (!StringUtils.hasText(duration) || Objects.equals(f.getDuration(), Long.parseLong(duration))) && (localdate == null || Objects.equals(f.getReleaseDate(), localdate)) && (genres == null || f.getGenres().equals(genres))).toList();
     }
 }

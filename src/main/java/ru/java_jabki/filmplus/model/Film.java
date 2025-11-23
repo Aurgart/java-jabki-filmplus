@@ -5,7 +5,7 @@ import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Film {
-    //id, name, description, releaseDate, duration, genres
+
     private static final AtomicInteger count = new AtomicInteger();
     private final int id;
     private final String name;
@@ -43,7 +43,7 @@ public class Film {
         return this.id;
     }
 
-    public double getDuration() {
+    public Long getDuration() {
         return this.duration;
     }
 

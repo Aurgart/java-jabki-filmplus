@@ -16,18 +16,19 @@ public class LikeService {
 
     public LikeService() {
         this.likes = new ArrayList<>();
-        ;
     }
 
     public void addLikeToFilm(Integer filmId, Long userId) {
-        likes.add(new Like(userId, filmId));
+        if (!likes.contains(new Like(userId, filmId))){
+            likes.add(new Like(userId, filmId));
+        }
     }
 
     public void removeLikeFromFilm(Integer filmId, Long userId) {
         likes.remove(new Like(userId, filmId));
     }
 
-    public List<Like> getLikes(Integer filmId, Long userId) {
-        return likes.stream().filter(f -> (!(filmId == null) && Objects.equals(f.getFilmId(), filmId)) && (!(userId == null) && Objects.equals(f.getUserId(), userId))).toList();
+    public List<Like> getLikes(Integer filmId) {
+        return likes.stream().filter(f -> (!(filmId == null) && Objects.equals(f.getFilmId(), filmId))).toList();
     }
 }

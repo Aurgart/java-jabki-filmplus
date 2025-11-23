@@ -18,13 +18,14 @@ public class UserService {
 
     public User addUser(User user) {
         validateUser(user);
-        User newuser = new User(user.getName(), user.getEmail(),user.getLogin(),user.getBirthday());
+        User newuser = new User(user.getName(), user.getEmail(), user.getLogin(), user.getBirthday());
         users.add(newuser);
         return newuser;
     }
+
     public User addUser(String name, String email, String login, LocalDate birthday) {
-        validateUserData(name, name, login, birthday);
-        User newuser = new User(name, name, login, birthday);
+        validateUserData(name, email, login, birthday);
+        User newuser = new User(name, email, login, birthday);
         users.add(newuser);
         return newuser;
     }
@@ -33,19 +34,19 @@ public class UserService {
         if (user == null) {
             throw new UserException("User is null");
         }
-        if (!StringUtils.hasText(user.getEmail()) || !StringUtils.hasText(user.getName())) {
-            throw new UserException("One of the parameters is empty: name - " + user.getName() + " email - " + user.getEmail());
-        }
+        validateUserData(user.getName(), user.getEmail(), user.getLogin(), user.getBirthday());
     }
+
     private void validateUserData(String name, String email, String login, LocalDate birthday) {
 
         if (!StringUtils.hasText(email) || !StringUtils.hasText(name)) {
-            throw new UserException("One of the parameters is empty: name - " + name + " email - " +email);
+            throw new UserException("One of the parameters is empty: name - " + name + " email - " + email);
         }
         if (!StringUtils.hasText(login) || birthday.isAfter(LocalDate.now())) {
-            throw new UserException("One of the parameters is empty: login - " + login + " birthday - " +birthday);
+            throw new UserException("One of the parameters is empty: login - " + login + " birthday - " + birthday);
         }
     }
+
     public User getbyId(final Long id) {
         return users.stream().filter(f -> Objects.equals(f.getId(), id)).findFirst().orElseThrow(() -> new FilmException("Movie not found"));
     }

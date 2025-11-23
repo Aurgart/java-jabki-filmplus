@@ -17,15 +17,15 @@ public class FriendsService {
         ;
     }
 
-    public void befriendThatNigga(Long friend1, Long friend2) {
-        bestFriends.add(new Friends(friend1, friend2));
+    public void befriendThatNigga(Long firstFriend, Long secondFriend) {
+        bestFriends.add(new Friends(firstFriend, secondFriend));
     }
 
-    public void hateThatNigga(Long friend1, Long friend2) {
-        bestFriends.remove(new Friends(friend1, friend2));
+    public void hateThatNigga(Long firstFriend, Long secondFriend) {
+        bestFriends.remove(new Friends(firstFriend, secondFriend));
     }
 
     public List<Friends> getBestNiggas(Long friend) {
-        return bestFriends.stream().filter(f -> (!(friend == null) && (Objects.equals(f.getUserId1(), friend) || Objects.equals(f.getUserId2(), friend)))).toList();
+        return bestFriends.stream().filter(f -> (!(friend == null) && (Objects.equals(f.getFirstFriend(), friend) || Objects.equals(f.getSecondFriend(), friend)))).toList();
     }
 }

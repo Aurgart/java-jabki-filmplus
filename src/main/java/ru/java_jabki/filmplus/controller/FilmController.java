@@ -42,8 +42,8 @@ public class FilmController {
 
     @DeleteMapping("/{id}")
     @Operation(summary = "Удалить фильм")
-    public void delete(@PathVariable("id") String id) {
-        filmLogic.deleteFilm(Integer.parseInt(id));
+    public void delete(@PathVariable("id") Integer id) {
+        filmLogic.deleteFilm(id);
     }
 
     @GetMapping("/search")
