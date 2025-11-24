@@ -6,16 +6,15 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Film {
 
-    private static final AtomicInteger count = new AtomicInteger();
-    private final int id;
+    private int id;
     private final String name;
     private final LocalDate releaseDate;
     private final Long duration;
     private String description;
     private Set<Genre> genres;
 
-    public Film(String name, String description, LocalDate releaseDate, Long duration, Set<Genre> genres) {
-        this.id = count.incrementAndGet();
+    public Film(int id,String name, String description, LocalDate releaseDate, Long duration, Set<Genre> genres) {
+        this.id = id;
         this.name = name;
         this.description = description;
         this.releaseDate = releaseDate;
@@ -25,6 +24,10 @@ public class Film {
 
     public String getName() {
         return this.name;
+    }
+
+    public void setId(int id){
+        this.id = id;
     }
 
     public LocalDate getReleaseDate() {

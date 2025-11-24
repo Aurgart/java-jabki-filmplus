@@ -35,10 +35,10 @@ class FilmplusApplicationTests {
     void testAddFilm() {
         //String name, String description, LocalDate releaseDate, Long duration, Set<Genre> genres
         FilmService tmp = new FilmService();
-        RuntimeException excp = assertThrows(RuntimeException.class, () -> tmp.addfilm(new Film("Ne grozi Centralu", "Niggeri", LocalDate.parse("2000-01-20"), (long) 1000, Set.of(COMEDY))));
+        RuntimeException excp = assertThrows(RuntimeException.class, () -> tmp.addfilm(new Film(2,"Ne grozi Centralu", "Niggeri", LocalDate.parse("2000-01-20"), (long) 1000, Set.of(COMEDY))));
         Assertions.assertNotNull(excp.getMessage());
         Assertions.assertDoesNotThrow(() -> {
-            tmp.addfilm(new Film("Ne grozi Centralu", "Niggeri", LocalDate.parse("2000-01-20"), (long) 120, Set.of(COMEDY)));
+            tmp.addfilm(new Film(1,"Ne grozi Centralu", "Niggeri", LocalDate.parse("2000-01-20"), (long) 120, Set.of(COMEDY)));
         });
     }
 }

@@ -16,7 +16,6 @@ public class ReviewService {
 
     public ReviewService() {
         this.reviews = new ArrayList<>();
-        ;
     }
 
     public void addReviewToFilm(Integer filmId, Long userId, String content) {

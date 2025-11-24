@@ -20,6 +20,7 @@ public class FilmService {
 
     public Film addfilm(final Film film) {
         validateFilm(film);
+        film.setId(films.size());
         films.add(film);
         return film;
     }

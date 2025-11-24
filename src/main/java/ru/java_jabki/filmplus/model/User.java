@@ -1,11 +1,9 @@
 package ru.java_jabki.filmplus.model;
 
 import java.time.LocalDate;
-import java.util.concurrent.atomic.AtomicLong;
 
 public class User {
-    private static final AtomicLong count = new AtomicLong();
-    private final Long id;
+    private Long id;
     private String login;
     private String name;
     private String email;
@@ -13,7 +11,6 @@ public class User {
 
 
     public User(final String name, final String email, final String login, final LocalDate birthday) {
-        this.id = count.incrementAndGet();
         this.name = name;
         this.email = email;
         this.login = login;
@@ -22,6 +19,10 @@ public class User {
 
     public Long getId() {
         return this.id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {

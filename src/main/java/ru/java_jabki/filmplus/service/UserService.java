@@ -18,14 +18,15 @@ public class UserService {
 
     public User addUser(User user) {
         validateUser(user);
-        User newuser = new User(user.getName(), user.getEmail(), user.getLogin(), user.getBirthday());
-        users.add(newuser);
-        return newuser;
+        user.setId((long) users.size());
+        users.add(user);
+        return user;
     }
 
     public User addUser(String name, String email, String login, LocalDate birthday) {
         validateUserData(name, email, login, birthday);
         User newuser = new User(name, email, login, birthday);
+        newuser.setId((long) users.size());
         users.add(newuser);
         return newuser;
     }

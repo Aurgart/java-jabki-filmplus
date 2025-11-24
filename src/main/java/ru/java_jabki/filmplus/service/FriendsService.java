@@ -14,7 +14,6 @@ public class FriendsService {
 
     public FriendsService() {
         this.bestFriends = new ArrayList<>();
-        ;
     }
 
     public void befriendThatNigga(Long firstFriend, Long secondFriend) {
