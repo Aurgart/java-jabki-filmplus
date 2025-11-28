@@ -2,6 +2,7 @@ package ru.java_jabki.filmplus.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import ru.java_jabki.filmplus.model.Like;
 import ru.java_jabki.filmplus.model.User;
@@ -10,19 +11,16 @@ import ru.java_jabki.filmplus.service.LikeService;
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/api/v1/like")
 @Tag(name = "Лайки")
 public class LikeController {
-    private LikeService likeLogic;
-
-    public LikeController(LikeService likes) {
-        this.likeLogic = likes;
-    }
+    private final LikeService likeLogic;
 
     @PostMapping
     @Operation(summary = "Лайк фильму")
     public void addLike(@RequestBody final Like like) {
-        likeLogic.addLikeToFilm(like.getFilmId(), like.getUserId());
+        likeLogic.addLikeToFilm(like);
     }
 
     @GetMapping("/{id}")

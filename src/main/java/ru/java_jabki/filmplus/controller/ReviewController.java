@@ -2,6 +2,7 @@ package ru.java_jabki.filmplus.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import ru.java_jabki.filmplus.model.Like;
 import ru.java_jabki.filmplus.model.Review;
@@ -11,19 +12,16 @@ import ru.java_jabki.filmplus.service.ReviewService;
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/api/v1/review")
 @Tag(name = "Ревью")
 public class ReviewController {
-    private ReviewService reviewLogic;
-
-    public ReviewController(ReviewService reviews) {
-        this.reviewLogic = reviews;
-    }
+    private final ReviewService reviewLogic;
 
     @PostMapping
     @Operation(summary = "Проревьить фильм")
     public void addReview(@RequestBody final Review review) {
-        reviewLogic.addReviewToFilm(review.getFilmId(), review.getUserId(), review.getReview());
+        reviewLogic.addReviewToFilm(review);
     }
 
     @GetMapping("/{id}")
@@ -34,8 +32,8 @@ public class ReviewController {
 
     @PatchMapping
     @Operation(summary = "Обновить ревью")
-    public void delete(@RequestParam(required = true) String filmId, @RequestParam(required = true) String userId, @RequestParam(required = true) String content) {
-        reviewLogic.updateReview(Integer.parseInt(filmId), Long.parseLong(userId), content);
+    public void update(@RequestBody final Review review) {
+        reviewLogic.updateReview(review);
     }
 
     @DeleteMapping
