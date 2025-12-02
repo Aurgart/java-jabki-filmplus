@@ -2,15 +2,10 @@ package ru.java_jabki.filmplus.service;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 import ru.java_jabki.filmplus.model.Like;
 import ru.java_jabki.filmplus.repository.LikeRepository;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
 
 @Service
 @AllArgsConstructor

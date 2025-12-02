@@ -6,10 +6,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 import ru.java_jabki.filmplus.mappers.ReviewMapper;
 import ru.java_jabki.filmplus.model.Review;
-
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Repository
 @AllArgsConstructor

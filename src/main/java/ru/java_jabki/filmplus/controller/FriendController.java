@@ -5,9 +5,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import ru.java_jabki.filmplus.model.Friends;
-import ru.java_jabki.filmplus.model.Like;
 import ru.java_jabki.filmplus.service.FriendsService;
-import ru.java_jabki.filmplus.service.LikeService;
 
 import java.util.List;
 

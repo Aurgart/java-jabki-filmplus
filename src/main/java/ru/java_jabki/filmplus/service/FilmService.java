@@ -5,14 +5,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import ru.java_jabki.filmplus.exceptions.FilmException;
 import ru.java_jabki.filmplus.model.Film;
-import ru.java_jabki.filmplus.model.Genre;
 import ru.java_jabki.filmplus.repository.FilmRepository;
 
 import java.time.LocalDate;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Objects;
-import java.util.Set;
 
 import static java.util.stream.Collectors.toList;
 

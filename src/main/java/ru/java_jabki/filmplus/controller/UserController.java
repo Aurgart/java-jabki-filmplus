@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 import ru.java_jabki.filmplus.model.User;
 import ru.java_jabki.filmplus.service.UserService;
 
-import java.time.LocalDate;
 
 @RestController
 @RequiredArgsConstructor

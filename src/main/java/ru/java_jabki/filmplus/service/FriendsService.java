@@ -3,12 +3,9 @@ package ru.java_jabki.filmplus.service;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.java_jabki.filmplus.model.Friends;
-import ru.java_jabki.filmplus.model.Like;
 import ru.java_jabki.filmplus.repository.FriendsRepository;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Service
 @AllArgsConstructor

@@ -2,15 +2,10 @@ package ru.java_jabki.filmplus.service;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.java_jabki.filmplus.exceptions.ReviewException;
-import ru.java_jabki.filmplus.model.Like;
 import ru.java_jabki.filmplus.model.Review;
 import ru.java_jabki.filmplus.repository.ReviewRepository;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
 
 @Service
 @AllArgsConstructor

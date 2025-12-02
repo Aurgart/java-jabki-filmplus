@@ -5,12 +5,10 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import ru.java_jabki.filmplus.model.Film;
-import ru.java_jabki.filmplus.model.Genre;
 import ru.java_jabki.filmplus.service.FilmService;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Set;
 
 @RestController
 @RequiredArgsConstructor

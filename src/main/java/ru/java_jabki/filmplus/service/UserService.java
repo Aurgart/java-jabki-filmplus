@@ -1,20 +1,13 @@
 package ru.java_jabki.filmplus.service;
 
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
-import ru.java_jabki.filmplus.exceptions.FilmException;
 import ru.java_jabki.filmplus.exceptions.UserException;
-import ru.java_jabki.filmplus.model.Film;
 import ru.java_jabki.filmplus.model.User;
 import ru.java_jabki.filmplus.repository.UserRepository;
 
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-
 @Service
 @AllArgsConstructor
 public class UserService {

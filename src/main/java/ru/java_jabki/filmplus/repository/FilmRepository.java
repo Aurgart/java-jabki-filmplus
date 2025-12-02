@@ -6,12 +6,9 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 import ru.java_jabki.filmplus.mappers.FilmMapper;
 import ru.java_jabki.filmplus.model.Film;
-import ru.java_jabki.filmplus.model.Genre;
 
 import java.time.LocalDate;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Repository
 @AllArgsConstructor

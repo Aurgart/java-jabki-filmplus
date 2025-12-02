@@ -8,10 +8,8 @@ import ru.java_jabki.filmplus.model.Genre;
 import java.sql.Array;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 @Component
 public class FilmMapper  implements RowMapper<Film> {
