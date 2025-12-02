@@ -1,6 +1,7 @@
 package ru.java_jabki.filmplus.service;
 
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import ru.java_jabki.filmplus.exceptions.FilmException;
