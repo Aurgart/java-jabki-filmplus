@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/20251120_init_user_table.sql
+  - include:
+      file: db/changelog/20251124_init_genre.sql
+  - include:
+      file: db/changelog/20251120_init_film_table.sql
+  - include:
+      file: db/changelog/20251122_init_friend_table.sql
+  - include:
+      file: db/changelog/20251120_init_like_table.sql
+  - include:
+      file: db/changelog/20251122_init_review_table.sql
+  - include:
+      file: db/changelog/20251204_foreign_keys.sql

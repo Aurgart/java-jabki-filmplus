@@ -2,6 +2,7 @@ package ru.java_jabki.filmplus.service;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import ru.java_jabki.filmplus.exceptions.UserException;
 import ru.java_jabki.filmplus.model.Friends;
 import ru.java_jabki.filmplus.repository.FriendsRepository;
 
@@ -13,7 +14,11 @@ public class FriendsService {
     private final FriendsRepository nigga;
 
     public Friends befriendThatNigga(final Friends niggas) {
-        return nigga.insert(niggas);
+        if(niggas.getFirstFriend() != niggas.getSecondFriend()) {
+            return nigga.insert(niggas);
+        }else{
+            throw new UserException("You cant befriend yourself");
+        }
     }
 
     public void hateThatNigga(Long firstFriend, Long secondFriend) {
