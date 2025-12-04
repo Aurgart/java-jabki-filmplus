@@ -63,8 +63,8 @@ public class FilmRepository {
     public Film getById(final int id) {
         return jbcTemplate.queryForObject(GET_BY_ID, new MapSqlParameterSource("id", id), filmMapp);
     }
-    public List<Film> search(String name, String description, LocalDate releasedate, Integer duration ){
-        return jbcTemplate.query(SEARCH,filmParamForSearchSQL(name,description,releasedate,duration), filmMapp);
+    public List<Film> search(String name, String description, LocalDate release_date, Integer duration ){
+        return jbcTemplate.query(SEARCH,filmParamForSearchSQL(name,description,release_date,duration), filmMapp);
     }
 
     private MapSqlParameterSource filmParamForSQL(final Film film){
@@ -87,11 +87,11 @@ public class FilmRepository {
         return params;
     }
 
-    private MapSqlParameterSource filmParamForSearchSQL(String name, String description, LocalDate releasedate, Integer duration) {
+    private MapSqlParameterSource filmParamForSearchSQL(String name, String description, LocalDate release_date, Integer duration) {
         final MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("name", name);
         params.addValue("description", description);
-        params.addValue("release_date", releasedate);
+        params.addValue("release_date", release_date);
         params.addValue("duration", duration);
         return params;
     }
