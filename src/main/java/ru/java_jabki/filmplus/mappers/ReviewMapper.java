@@ -18,5 +18,4 @@ public class ReviewMapper implements RowMapper<Review> {
                 .review(rs.getString("review"))
                 .build();
     }
-
 }

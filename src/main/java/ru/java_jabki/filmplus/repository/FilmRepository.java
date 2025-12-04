@@ -14,15 +14,15 @@ import java.util.List;
 @AllArgsConstructor
 public class FilmRepository {
     private static final String INSERT = """
-            INSERT INTO filmplus.film (name,description, releasedate, duration, genres)
-            VALUES (:name, :description, :releasedate, :duration, :genres::genre[])
+            INSERT INTO filmplus.film (name,description, release_date, duration, genres)
+            VALUES (:name, :description, :release_date, :duration, :genres::genre[])
             RETURNING *;
             """;
     private static final String UPDATE = """
             UPDATE filmplus.film
             SET name = :name,
                 description = :description,
-                releasedate = :releasedate,
+                release_date = :release_date,
                 duration = :duration,
                 genres = :genres::genre[]
             WHERE id = :id
@@ -43,7 +43,7 @@ public class FilmRepository {
             FROM filmplus.film
             WHERE name like '%'||:name||'%'
                OR description like '%'||:description||'%'
-               OR releasedate = :releasedate
+               OR release_date = :release_date
                OR duration = :duration
             """;
 
@@ -73,7 +73,7 @@ public class FilmRepository {
         params.addValue("id", film.getId());
         params.addValue("name", film.getName());
         params.addValue("description", film.getDescription());
-        params.addValue("releasedate", film.getReleaseDate());
+        params.addValue("release_date", film.getReleaseDate());
         params.addValue("duration", film.getDuration());
         if (film.getGenres() != null && !film.getGenres().isEmpty()) {
             String[] stringArray = film.getGenres().stream()
@@ -91,7 +91,7 @@ public class FilmRepository {
         final MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("name", name);
         params.addValue("description", description);
-        params.addValue("releasedate", releasedate);
+        params.addValue("release_date", releasedate);
         params.addValue("duration", duration);
         return params;
     }

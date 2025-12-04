@@ -39,7 +39,7 @@ public class FriendsRepository {
     }
 
     public List<Friends> getById(final Long user_id) {
-        return jbcTemplate.query(GET_BY_ID,  new MapSqlParameterSource("film_id", user_id), friendsMapp);
+        return jbcTemplate.query(GET_BY_ID,  new MapSqlParameterSource("user_id", user_id), friendsMapp);
     }
 
     public MapSqlParameterSource friendParamForSql(final Friends friend) {
