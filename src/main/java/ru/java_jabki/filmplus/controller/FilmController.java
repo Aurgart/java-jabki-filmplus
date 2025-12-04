@@ -2,25 +2,21 @@ package ru.java_jabki.filmplus.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import ru.java_jabki.filmplus.model.Film;
-import ru.java_jabki.filmplus.model.Genre;
 import ru.java_jabki.filmplus.service.FilmService;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Set;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/api/v1/film")
 @Tag(name = "Фильм")
 public class FilmController {
 
     private final FilmService filmLogic;
-
-    public FilmController(final FilmService films) {
-        this.filmLogic = films;
-    }
 
     @PostMapping
     @Operation(summary = "Создать фильм")
@@ -48,7 +44,7 @@ public class FilmController {
 
     @GetMapping("/search")
     @Operation(summary = "Поиск фильма")
-    public List<Film> searchFilm(@RequestParam(required = false) String name, @RequestParam(required = false) String description, @RequestParam(required = false) LocalDate releaseDate, @RequestParam(required = false) String duration, @RequestParam(required = false) Set<Genre> genres) {
-        return filmLogic.searchFilm(name, description, duration, releaseDate, genres);
+    public List<Film> searchFilm(@RequestParam(required = false) String name, @RequestParam(required = false) String description, @RequestParam(required = false) LocalDate releaseDate, @RequestParam(required = false) Integer duration) {
+        return filmLogic.searchFilm(name,description,releaseDate,duration);
     }
 }

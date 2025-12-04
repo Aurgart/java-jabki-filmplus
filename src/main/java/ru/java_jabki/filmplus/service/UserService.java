@@ -1,34 +1,22 @@
 package ru.java_jabki.filmplus.service;
 
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
-import ru.java_jabki.filmplus.exceptions.FilmException;
 import ru.java_jabki.filmplus.exceptions.UserException;
-import ru.java_jabki.filmplus.model.Film;
 import ru.java_jabki.filmplus.model.User;
+import ru.java_jabki.filmplus.repository.UserRepository;
 
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-
 @Service
+@AllArgsConstructor
 public class UserService {
-    private static Set<User> users = new HashSet<>();
+    private final UserRepository users;
 
     public User addUser(User user) {
         validateUser(user);
-        user.setId((long) users.size());
-        users.add(user);
+        users.insert(user);
         return user;
-    }
-
-    public User addUser(String name, String email, String login, LocalDate birthday) {
-        validateUserData(name, email, login, birthday);
-        User newuser = new User(name, email, login, birthday);
-        newuser.setId((long) users.size());
-        users.add(newuser);
-        return newuser;
     }
 
     private void validateUser(User user) {
@@ -49,18 +37,15 @@ public class UserService {
     }
 
     public User getbyId(final Long id) {
-        return users.stream().filter(f -> Objects.equals(f.getId(), id)).findFirst().orElseThrow(() -> new FilmException("Movie not found"));
+        return users.getById(id);
     }
 
     public void deleteUser(final Long id) {
-        users.remove(getbyId(id));
+        users.delete(id);
     }
 
     public void updateUser(User user) {
-        User tmp = getbyId(user.getId());
-        tmp.setName(user.getName());
-        tmp.setEmail(user.getEmail());
-        tmp.setBirthday(user.getBirthday());
+        users.update(user);
     }
 
 }
